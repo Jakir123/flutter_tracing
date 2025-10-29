@@ -45,30 +45,37 @@ class TracingCubit extends Cubit<TracingState> {
     index++;
     if (index < state.numberOfScreens) {
       emit(state.copyWith(index: index, drawingStates: DrawingStates.loaded));
-      updateTheTraceLetter();
     }
   }
 
   updateTheTraceLetter() async {
     emit(state.clearData());
+    final traceShapeModel = state.traceShapeModel;
+    final characterForm = (traceShapeModel != null && 
+                         traceShapeModel.isNotEmpty && 
+                         traceShapeModel[state.index].chars.isNotEmpty)
+        ? traceShapeModel[state.index].chars[0].characterForm
+        : null;
+
     emit(state.copyWith(
         activeIndex: 0,
         stateOfTracing: state.stateOfTracing,
-        traceLetter: TypeExtensionTracking().getTracingData(
-            geometryShapes: state.stateOfTracing == StateOfTracing.traceShapes &&  state.traceGeoMetricShapes!.isNotEmpty
+        traceLetter: TypeExtensionTracking(characterForm: characterForm).getTracingData(
+            geometryShapes: state.stateOfTracing == StateOfTracing.traceShapes && state.traceGeoMetricShapes!.isNotEmpty
                 ? state.traceGeoMetricShapes![state.index].shapes
                 : null,
-            chars: state.stateOfTracing == StateOfTracing.chars &&  state.traceShapeModel!.isNotEmpty
+            chars: state.stateOfTracing == StateOfTracing.chars && state.traceShapeModel!.isNotEmpty
                 ? state.traceShapeModel![state.index].chars
                 : null,
-                word:state.stateOfTracing == StateOfTracing.traceWords &&  state.traceWordModels!.isNotEmpty
+            word: state.stateOfTracing == StateOfTracing.traceWords && state.traceWordModels!.isNotEmpty
                 ? state.traceWordModels![state.index]
-                : null ,
+                : null,
             currentOfTracking: state.stateOfTracing)));
     await loadAssets();
   }
 
   final viewSize = const Size(200, 200);
+  
   Future<void> loadAssets() async {
     emit(state.copyWith(drawingStates: DrawingStates.loading));
 

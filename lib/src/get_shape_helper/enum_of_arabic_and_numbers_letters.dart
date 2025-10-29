@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tracing_game/src/colors/phonetics_color.dart';
+import 'package:tracing_game/src/tracing/model/arabic_character_form.dart';
 import 'package:tracing_game/src/phontics_constants/arabic_shape_paths_blue_unit.dart';
 import 'package:tracing_game/src/phontics_constants/arabis_shape_paths.dart';
+import 'package:tracing_game/src/phontics_constants/arabic_shape_paths_custom.dart';
 import 'package:tracing_game/src/phontics_constants/english_shape_path2.dart';
 import 'package:tracing_game/src/phontics_constants/math_trace_shape_paths.dart';
 import 'package:tracing_game/src/phontics_constants/numbers_svg.dart';
@@ -9,8 +11,13 @@ import 'package:tracing_game/src/phontics_constants/shape_paths.dart';
 import 'package:tracing_game/src/points_manager/shape_points_manger.dart';
 import 'package:tracing_game/src/tracing/model/trace_model.dart';
 import 'package:tracing_game/tracing_game.dart';
+import 'package:tracing_game/src/utils/arabic_letters.dart';
+ 
 
 class TypeExtensionTracking {
+  final ArabicCharacterForm? characterForm;
+
+  const TypeExtensionTracking({this.characterForm});
   ArabicLetters _detectTheCurrentEnum({required String letter}) {
     if (letter == 'هـ') {
       return ArabicLetters.heh1;
@@ -157,7 +164,10 @@ class TypeExtensionTracking {
         // Detect the type of letter and add the corresponding tracing data
         if (_isArabicCharacter(letters)) {
           tracingDataList
-              .addAll(_getTracingDataArabic(letter: letters).map((e)=>e.copyWith(
+              .addAll(_getTracingDataArabic(
+                letter: letters, 
+                characterForm: char.characterForm
+              ).map((e) => e.copyWith(
                     innerPaintColor: char.traceShapeOptions.innerPaintColor,
                     outerPaintColor: char.traceShapeOptions.outerPaintColor,
                     indexColor: char.traceShapeOptions.indexColor,
@@ -642,7 +652,96 @@ class TypeExtensionTracking {
         .toList();
   }
 
-  List<TraceModel> _getTracingDataArabic({required String letter}) {
+  List<TraceModel> _getTracingDataArabic({required String letter, ArabicCharacterForm? characterForm}) {
+    // Use the provided characterForm or fall back to the instance variable or default to isolated
+    final form = characterForm ?? this.characterForm ?? ArabicCharacterForm.isolated;
+    
+    // Form-aware override for specific Arabic letters
+    // Jeem: use existing paths so shape matches point assets
+    if (letter == ArabicLetter.jeem.tracingChar) {
+      switch (form) {
+        case ArabicCharacterForm.isolated:
+          return [
+            TraceModel(
+                positionIndexPath: const Size(-10, -18),
+                positionDottedPath: const Size(0, -5),
+                scaledottedPath: .9,
+                scaleIndexPath: .92,
+                indexPathPaintStyle: PaintingStyle.stroke,
+                dottedPath: ArabicShapePaths.gemDotted,
+                dottedColor: AppColorPhonetics.white,
+                indexColor: AppColorPhonetics.grey,
+                indexPath: ArabicShapePaths.gemIndex,
+                letterPath: ArabicShapePaths.gemmm,
+                strokeWidth: 40,
+                strokeIndex: 1,
+                pointsJsonFile: ShapePointsManger.gemIsolatedShape,
+                innerPaintColor: AppColorPhonetics.lightBlueColor5,
+                outerPaintColor: AppColorPhonetics.lightBlueColor5),
+          ];
+
+        case ArabicCharacterForm.start:
+          return [
+            TraceModel(
+                positionIndexPath: const Size(0, -30),
+                positionDottedPath: const Size(-5, -15),
+                scaledottedPath: .8,
+                scaleIndexPath: .9,
+                strokeIndex: 1,
+                // strokeWidth: ,
+                dottedPath: ArabicShapePaths.gemsmallDoottedPath,
+                dottedColor: AppColorPhonetics.white,
+                indexColor: AppColorPhonetics.grey,
+                indexPath: ArabicShapePaths.gemSmallIndexPath,
+                letterPath: ArabicShapePaths.gemSmall2,
+                pointsJsonFile: ShapePointsManger.gemSmallShape,
+                innerPaintColor: AppColorPhonetics.lightBlueColor5,
+                outerPaintColor: AppColorPhonetics.lightBlueColor5),
+          ];
+
+        case ArabicCharacterForm.end:
+          return [
+            TraceModel(
+                positionIndexPath: const Size(-10, -18),
+                positionDottedPath: const Size(0, -5),
+                scaledottedPath: .88,
+                scaleIndexPath: .95,
+                indexPathPaintStyle: PaintingStyle.stroke,
+                dottedPath: ArabicShapePaths.gemDotted,
+                dottedColor: AppColorPhonetics.white,
+                indexColor: AppColorPhonetics.grey,
+                indexPath: ArabicShapePaths.gemIndex,
+                letterPath: ArabicShapePaths.gemmm,
+                strokeWidth: 40,
+                strokeIndex: 1,
+                pointsJsonFile: ShapePointsManger.gemFinalShape,
+                innerPaintColor: AppColorPhonetics.lightBlueColor5,
+                outerPaintColor: AppColorPhonetics.lightBlueColor5),
+          ];
+
+        case ArabicCharacterForm.middle:
+          // Use middle-specific Jeem assets and middle points with neutral transforms
+          return [
+            TraceModel(
+                positionIndexPath: const Size(0, -30),
+                positionDottedPath: const Size(-5, -15),
+                scaledottedPath: .8,
+                scaleIndexPath: .9,
+                strokeIndex: 1,
+                // strokeWidth: ,
+                dottedPath: ArabicShapePaths.gemsmallDoottedPath,
+                dottedColor: AppColorPhonetics.white,
+                indexColor: AppColorPhonetics.grey,
+                indexPath: ArabicShapePaths.gemSmallIndexPath,
+                letterPath: ArabicShapePaths.gemSmall2,
+                pointsJsonFile: ShapePointsManger.gemSmallShape,
+                innerPaintColor: AppColorPhonetics.lightBlueColor5,
+                outerPaintColor: AppColorPhonetics.lightBlueColor5),
+          ];
+      }
+    }
+    
+    // Fall back to the original implementation if no custom path is found
     ArabicLetters currentLetter = _detectTheCurrentEnum(letter: letter);
 
     switch (currentLetter) {
@@ -995,7 +1094,6 @@ class TypeExtensionTracking {
               scaledottedPath: .8,
               scaleIndexPath: .9,
               strokeIndex: 1,
-
               // strokeWidth: ,
               dottedPath: ArabicShapePaths.gemsmallDoottedPath,
               dottedColor: AppColorPhonetics.white,

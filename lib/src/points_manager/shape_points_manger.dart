@@ -82,6 +82,12 @@ class ShapePointsManger {
     static const gemSmallShape = '$arabicBase/gem_small_PointsInfo.json';
 
     static const gemShape = '$arabicBase/gem_big_PointsInfo.json';
+
+    // Per-form Jeem point files (distinct filenames)
+    static const gemIsolatedShape = '$arabicBase/gem_isolated_PointsInfo.json';
+    static const gemFinalShape = '$arabicBase/gem_final_PointsInfo.json';
+    static const gemInitialShape = '$arabicBase/gem_initial_PointsInfo.json';
+    static const gemMedialShape = '$arabicBase/gem_medial_PointsInfo.json';
     static const sensmallShape = '$arabicBase/sen_small_PointsInfo.json';
     static const senBigShape = '$arabicBase/sen_big_PointsInfo.json';
 

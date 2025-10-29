@@ -15,3 +15,8 @@ set_target_properties(tracing_game PROPERTIES
 )
 
 target_compile_definitions(tracing_game PUBLIC DART_SHARED_LIB)
+
+if (ANDROID)
+  # Support Android 15 16k page size.
+  target_link_options(tracing_game PRIVATE "-Wl,-z,max-page-size=16384")
+endif()

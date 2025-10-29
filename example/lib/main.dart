@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tracing_game/tracing_game.dart';
+import 'package:tracing_game/src/tracing/model/arabic_character_form.dart';
+import 'debug_points_preview.dart';
+import 'package:tracing_game/src/utils/arabic_letters.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +20,9 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
+    print('Direct: ${'ج'.codeUnits}');  // Should print [1580]
+    print('From enum: ${ArabicLetter.jeem.char.codeUnits}');  // Check what this prints
   }
 
   @override
@@ -33,19 +40,34 @@ class _MyAppState extends State<MyApp> {
                 showAnchor: true,
                 traceShapeModel: [
                TraceCharsModel(chars: [
-                    TraceCharModel(
-                        char: 'X',
-                        traceShapeOptions: const TraceShapeOptions(
-                            innerPaintColor: Colors.orange)),
-                                   TraceCharModel(
-                        char: 'r',
-                        traceShapeOptions: const TraceShapeOptions(
-                            innerPaintColor: Colors.orange)),
-                                               TraceCharModel(
-                        char: '2',
-                        traceShapeOptions: const TraceShapeOptions(
-                            innerPaintColor: Colors.orange)),
-              
+                 TraceCharModel(
+                     char: ArabicLetter.jeem.tracingChar,
+                     characterForm: ArabicCharacterForm.end,
+                     traceShapeOptions: const TraceShapeOptions(
+                         innerPaintColor: Colors.orange)
+                    ),
+
+                 // TraceCharModel(
+                 //     char: ArabicLetter.jeem.tracingChar,
+                 //     characterForm: ArabicCharacterForm.start,
+                 //     traceShapeOptions: const TraceShapeOptions(
+                 //         innerPaintColor: Colors.orange)
+                 // ),
+                 //
+                 // TraceCharModel(
+                 //     char: ArabicLetter.jeem.tracingChar,
+                 //     characterForm: ArabicCharacterForm.middle,
+                 //     traceShapeOptions: const TraceShapeOptions(
+                 //         innerPaintColor: Colors.orange)
+                 // ),
+                 //
+                 // TraceCharModel(
+                 //     char: ArabicLetter.jeem.tracingChar,
+                 //     characterForm: ArabicCharacterForm.end,
+                 //     traceShapeOptions: const TraceShapeOptions(
+                 //         innerPaintColor: Colors.orange)
+                 // ),
+                 //
                   ])
                 ],
 
@@ -62,56 +84,15 @@ class _MyAppState extends State<MyApp> {
                 },
               ),
             ),
-            Expanded(
-              child: TracingGeometricShapesGame(
-                traceGeoMetricShapeModels: [
-                  TraceGeoMetricShapeModel(shapes: [
-                    MathShapeWithOption(
-                        shape: MathShapes.circle,
-                        traceShapeOptions: const TraceShapeOptions(
-                            innerPaintColor: Colors.orange)),
-                    MathShapeWithOption(
-                        shape: MathShapes.triangle1,
-                        traceShapeOptions: const TraceShapeOptions(
-                            innerPaintColor: Colors.orange))
-                  ]),
-                  TraceGeoMetricShapeModel(shapes: [
-                    MathShapeWithOption(
-                        shape: MathShapes.triangle3,
-                        traceShapeOptions: const TraceShapeOptions(
-                            innerPaintColor: Colors.orange)),
-                    MathShapeWithOption(
-                        shape: MathShapes.triangle2,
-                        traceShapeOptions: const TraceShapeOptions(
-                            innerPaintColor: Colors.orange))
-                  ]),
-                ],
-              ),
-            ),
-            Expanded(
-              child: TracingWordGame(
-                words: [
-                  TraceWordModel(word: 'I Love',traceShapeOptions: const TraceShapeOptions(
-                    indexColor: Colors.green
-                  )),
-                   TraceWordModel(word: 'Trace',traceShapeOptions: const TraceShapeOptions(
-                    indexColor: Colors.green
-                  ))
-                ],
-                      onTracingUpdated: (int currentTracingIndex) async {
-                  print('/////onTracingUpdated:' +
-                      currentTracingIndex.toString());
-                },
-                onGameFinished: (int screenIndex) async {
-                  print('/////onGameFinished:' + screenIndex.toString());
-                },
-                onCurrentTracingScreenFinished: (int currentScreenIndex) async {
-                  print('/////onCurrentTracingScreenFinished:' +
-                      currentScreenIndex.toString());
-                },
-
-              ),
-            ),
+            // const SizedBox(height: 12),
+            // const Text('gem_medial_PointsInfo.json preview', style: TextStyle(fontSize: 16)),
+            // const SizedBox(height: 8),
+            // const DebugPointsPreview(
+            //   assetPath: 'packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_medial_PointsInfo.json',
+            //   size: Size(300, 300),
+            //   drawLines: true,
+            //   pointColor: Colors.red,
+            // ),
           ],
         ),
       ),
