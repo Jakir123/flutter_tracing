@@ -10,3 +10,5 @@ export 'src/tracing/page/trace_shapes_game.dart';
 
 export 'src/tracing/page/tracing_word_game.dart';
 export 'src/enums/shape_enums.dart';
+export 'src/utils/arabic_letters.dart';
+export 'src/tracing/model/arabic_character_form.dart';
