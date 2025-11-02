@@ -87,6 +87,7 @@ flutter:
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/3en_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ba2_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ba2_small_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ba_middle_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/dad_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/dad_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/dal_big_PointsInfo.json

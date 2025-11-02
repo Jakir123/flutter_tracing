@@ -42,14 +42,14 @@ class _MyAppState extends State<MyApp> {
                TraceCharsModel(chars: [
                  TraceCharModel(
                      char: ArabicLetter.jeem.tracingChar,
-                     characterForm: ArabicCharacterForm.end,
+                     characterForm: ArabicCharacterForm.middle,
                      traceShapeOptions: const TraceShapeOptions(
                          innerPaintColor: Colors.orange)
                     ),
 
                  // TraceCharModel(
-                 //     char: ArabicLetter.jeem.tracingChar,
-                 //     characterForm: ArabicCharacterForm.start,
+                 //     char: ArabicLetter.alif.tracingChar,
+                 //     characterForm: ArabicCharacterForm.isolated,
                  //     traceShapeOptions: const TraceShapeOptions(
                  //         innerPaintColor: Colors.orange)
                  // ),
