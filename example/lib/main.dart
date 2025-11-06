@@ -35,40 +35,6 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           // spacing: 3,
           children: [
-            // Expanded(
-            //   child: TracingCharsGame(
-            //     showAnchor: true,
-            //     traceShapeModel: [
-            //    TraceCharsModel(chars: [
-            //      // TraceCharModel(
-            //      //     char: ArabicLetter.jeem.tracingChar,
-            //      //     characterForm: ArabicCharacterForm.isolated,
-            //      //     traceShapeOptions: const TraceShapeOptions(
-            //      //         innerPaintColor: Colors.orange)
-            //      //    ),
-            //
-            //      TraceCharModel(
-            //          char: ArabicLetter.lam.tracingChar,
-            //          characterForm: ArabicCharacterForm.start,
-            //          traceShapeOptions: const TraceShapeOptions(
-            //              innerPaintColor: Colors.orange)
-            //      ),
-            //       ])
-            //     ],
-            //
-            //     onTracingUpdated: (int currentTracingIndex) async {
-            //       print('/////onTracingUpdated:' +
-            //           currentTracingIndex.toString());
-            //     },
-            //     onGameFinished: (int screenIndex) async {
-            //       print('/////onGameFinished:' + screenIndex.toString());
-            //     },
-            //     onCurrentTracingScreenFinished: (int currentScreenIndex) async {
-            //       print('/////onCurrentTracingScreenFinished:' +
-            //           currentScreenIndex.toString());
-            //     },
-            //   ),
-            // ),
             Expanded(
               child: TracingCharsGame(
                 showAnchor: true,
@@ -81,12 +47,12 @@ class _MyAppState extends State<MyApp> {
                     //         innerPaintColor: Colors.orange)
                     // ),
 
-                    TraceCharModel(
-                        char: ArabicLetter.ha.tracingChar,
-                        characterForm: ArabicCharacterForm.middle,
-                        traceShapeOptions: const TraceShapeOptions(
-                            innerPaintColor: Colors.orange)
-                    ),
+                    // TraceCharModel(
+                    //     char: ArabicLetter.ha.tracingChar,
+                    //     characterForm: ArabicCharacterForm.middle,
+                    //     traceShapeOptions: const TraceShapeOptions(
+                    //         innerPaintColor: Colors.orange)
+                    // ),
                     TraceCharModel(
                         char: ArabicLetter.lam.tracingChar,
                         characterForm: ArabicCharacterForm.start,
@@ -128,7 +94,7 @@ class _MyAppState extends State<MyApp> {
             //   child: TracingWordGame(
             //     words: [
             //       TraceWordModel(
-            //         word: 'لهـقش',
+            //         word: '',
             //         traceShapeOptions: const TraceShapeOptions(
             //           indexColor: Colors.green,
             //         ),

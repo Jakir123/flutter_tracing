@@ -113,6 +113,16 @@ class _TracingWordGameState extends State<TracingWordGame> {
                                 child: Stack(
                                   clipBehavior: Clip.none,
                                   children: [
+                                    Positioned.fill(
+                                      child: IgnorePointer(
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            color: Colors.lime.withOpacity(0.1),
+                                            border: Border.all(color: Colors.lime, width: 1),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                     CustomPaint(
                                       size: tracingCubit.viewSize,
                                       painter: PhoneticsPainter(
