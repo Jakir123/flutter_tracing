@@ -735,7 +735,7 @@ class TypeExtensionTracking {
                 indexColor: AppColorPhonetics.grey,
                 indexPath: ArabicShapePaths.gemSmallIndexPath,
                 letterPath: ArabicShapePaths.gemMedial,
-                pointsJsonFile: ShapePointsManger.gemSmallShape,
+                pointsJsonFile: ShapePointsManger.gemMedialShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];
@@ -748,19 +748,19 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.isolated:
           return [
             TraceModel(
-                positionIndexPath: const Size(-10, -18),
-                positionDottedPath: const Size(0, -5),
+                positionIndexPath: const Size(5, -30),
+                positionDottedPath: const Size(5, -30),
                 scaledottedPath: .9,
                 scaleIndexPath: .92,
                 indexPathPaintStyle: PaintingStyle.stroke,
-                dottedPath: ArabicShapePaths.gemDotted,
+                dottedPath: ArabicShapePaths.ba2BigDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.gemIndex,
-                letterPath: ArabicShapePaths.gemmm,
+                indexPath: ArabicShapePaths.ba2BigIndex,
+                letterPath: ArabicShapePaths.ba2BigShape,
                 strokeWidth: 40,
                 strokeIndex: 1,
-                pointsJsonFile: ShapePointsManger.gemIsolatedShape,
+                pointsJsonFile: ShapePointsManger.ba2BigShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];
@@ -808,7 +808,7 @@ class TypeExtensionTracking {
         // Use middle-specific Jeem assets and middle points with neutral transforms
           return [
             TraceModel(
-                positionIndexPath: const Size(10, -25),
+                positionIndexPath: const Size(10, -480),
                 positionDottedPath: const Size(-5, -15),
                 scaledottedPath: .8,
                 scaleIndexPath: .9,
@@ -978,6 +978,7 @@ class TypeExtensionTracking {
             TraceModel(
                 positionIndexPath: const Size(0, -30),
                 positionDottedPath: const Size(-5, -15),
+                letterViewSize: Size(781.7, 1600),
                 scaledottedPath: .8,
                 scaleIndexPath: .9,
                 strokeIndex: 1,
@@ -1060,7 +1061,8 @@ class TypeExtensionTracking {
           // Use middle-specific Jeem assets and middle points with neutral transforms
           return [
             TraceModel(
-                positionIndexPath: const Size(-40, -90),
+              // letterViewSize: const Size(800, 800),
+                positionIndexPath: const Size(30, 90),
                 positionDottedPath: const Size(0, 0),
                 scaledottedPath: .8,
                 scaleIndexPath: .9,
@@ -1069,8 +1071,8 @@ class TypeExtensionTracking {
                 dottedPath: ArabicShapePaths.gemMedialDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.gemMedialIndex,
-                letterPath: ArabicShapePaths.gemMedial,
+                indexPath: ArabicShapePaths.gemMedialDotted,
+                letterPath: ArabicShapePathsCustom.gemMedial,
                 pointsJsonFile: ShapePointsManger.gemMedialShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
@@ -1144,17 +1146,18 @@ class TypeExtensionTracking {
         // Use middle-specific Jeem assets and middle points with neutral transforms
           return [
             TraceModel(
+                letterViewSize: const Size(236, 355),
                 positionIndexPath: const Size(0, -30),
                 positionDottedPath: const Size(-5, -15),
                 scaledottedPath: .8,
                 scaleIndexPath: .9,
                 strokeIndex: 1,
                 // strokeWidth: ,
-                dottedPath: ArabicShapePaths.gemsmallDoottedPath,
+                dottedPath: ArabicShapePaths.gemMedialDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.gemSmallIndexPath,
-                letterPath: ArabicShapePaths.gemMedial,
+                indexPath: ArabicShapePaths.gemMedialDotted,
+                letterPath: ArabicShapePaths.haMiddle,
                 pointsJsonFile: ShapePointsManger.gemSmallShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
@@ -2448,18 +2451,18 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.start:
           return [
             TraceModel(
-                positionIndexPath: const Size(0, -30),
-                positionDottedPath: const Size(-5, -15),
-                scaledottedPath: .8,
-                scaleIndexPath: .9,
+                letterViewSize: const Size(98, 355),
                 strokeIndex: 1,
-                // strokeWidth: ,
-                dottedPath: ArabicShapePaths.gemsmallDoottedPath,
+                dottedPath: ArabicShapePaths.gemMedialDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.gemSmallIndexPath,
-                letterPath: ArabicShapePaths.gemSmall2,
-                pointsJsonFile: ShapePointsManger.gemSmallShape,
+                indexPath: ArabicShapePaths.gemMedialDotted,
+                indexPathPaintStyle: PaintingStyle.stroke,
+                letterPath: ArabicShapePaths.lamStart,
+                positionIndexPath: const Size(20, 25),
+                positionDottedPath: const Size(5, 15),
+                scaledottedPath: .7,
+                pointsJsonFile: ShapePointsManger.lamsmallShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];

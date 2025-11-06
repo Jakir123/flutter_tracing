@@ -74,7 +74,7 @@ class TracingCubit extends Cubit<TracingState> {
     await loadAssets();
   }
 
-  final viewSize = const Size(200, 200);
+  var viewSize = const Size(200, 200);
   
   Future<void> loadAssets() async {
     emit(state.copyWith(drawingStates: DrawingStates.loading));
@@ -82,6 +82,7 @@ class TracingCubit extends Cubit<TracingState> {
     List<LetterPathsModel> model = [];
     for (var e in state.traceLetter) {
       final letterModel = e;
+      // viewSize = letterModel.letterViewSize;
       final parsedPath = parseSvgPath(letterModel.letterPath);
 
       final dottedIndexPath = parseSvgPath(letterModel.indexPath);

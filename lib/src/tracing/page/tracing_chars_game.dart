@@ -74,21 +74,21 @@ class _TracingCharsGameState extends State<TracingCharsGame> {
       
           return  Center(
               child: FittedBox(
-          
+
                   child: Center(
                     child: Row(
-                      mainAxisSize: MainAxisSize.min,
+                      mainAxisSize: MainAxisSize.max,
                       // mainAxisAlignment: MainAxisAlignment.s,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: List.generate(
                         state.letterPathsModels.length,
                         (index) {
-                          return SizedBox(
+                          return Container(
                             height:
                                 state.letterPathsModels[index].viewSize.width,
                             width: state
                                 .letterPathsModels[index].viewSize.height,
-                        
+
                             // color: Colors.green,
                             child: FittedBox(
                               fit: BoxFit.contain,
@@ -111,10 +111,21 @@ class _TracingCharsGameState extends State<TracingCharsGame> {
                                   clipBehavior: Clip.none,
                                   // alignment: Alignment.b,
                                   children: [
+                                    // Visualize the 500x500 area (for debugging)
+                                    Positioned.fill(
+                                      child: IgnorePointer(
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            color: Colors.lime.withOpacity(0.1),
+                                            border: Border.all(color: Colors.lime, width: 1),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                     CustomPaint(
                                       // isComplex: true,
                                       size: tracingCubit.viewSize,
-              
+
                                       painter: PhoneticsPainter(
                                         strokeIndex: state
                                             .letterPathsModels[index]
