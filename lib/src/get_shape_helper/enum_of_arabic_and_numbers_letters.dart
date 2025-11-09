@@ -17,7 +17,9 @@ import 'package:tracing_game/src/utils/arabic_letters.dart';
 class TypeExtensionTracking {
   final ArabicCharacterForm? characterForm;
 
-  const TypeExtensionTracking({this.characterForm});
+  const TypeExtensionTracking({
+    this.characterForm
+  });
   ArabicLetters _detectTheCurrentEnum({required String letter}) {
     if (letter == 'هـ') {
       return ArabicLetters.heh1;
@@ -166,7 +168,8 @@ class TypeExtensionTracking {
           tracingDataList
               .addAll(_getTracingDataArabic(
                 letter: letters, 
-                characterForm: char.characterForm
+                characterForm: char.characterForm,
+                letterBoxSize: char.charViewSize
               ).map((e) => e.copyWith(
                     innerPaintColor: char.traceShapeOptions.innerPaintColor,
                     outerPaintColor: char.traceShapeOptions.outerPaintColor,
@@ -652,10 +655,11 @@ class TypeExtensionTracking {
         .toList();
   }
 
-  List<TraceModel> _getTracingDataArabic({required String letter, ArabicCharacterForm? characterForm}) {
+  List<TraceModel> _getTracingDataArabic({required String letter, ArabicCharacterForm? characterForm, Size? letterBoxSize}) {
     // Use the provided characterForm or fall back to the instance variable or default to isolated
     final form = characterForm ?? this.characterForm ?? ArabicCharacterForm.isolated;
-    
+
+    final viewSize = letterBoxSize ?? const Size(200, 200);
     // Form-aware override for specific Arabic letters
 
     // Alif - أ
@@ -664,19 +668,20 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.isolated:
           return [
             TraceModel(
-                positionIndexPath: const Size(-10, -18),
-                positionDottedPath: const Size(0, -5),
+              letterViewSize: viewSize,
+                positionIndexPath: const Size(12, -10),
+                positionDottedPath: const Size(16, -5),
                 scaledottedPath: .9,
-                scaleIndexPath: .92,
-                indexPathPaintStyle: PaintingStyle.stroke,
-                dottedPath: ArabicShapePaths.gemDotted,
+                scaleIndexPath: 1.05,
+                strokeWidth: 30,
+                distanceToCheck: 20,
+                dottedPath: ArabicShapePaths.alefDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.gemIndex,
-                letterPath: ArabicShapePaths.gemmm,
-                strokeWidth: 40,
+                indexPath: ArabicShapePaths.alefIndex,
+                letterPath: ArabicShapePaths.alefBig,
                 strokeIndex: 1,
-                pointsJsonFile: ShapePointsManger.gemIsolatedShape,
+                pointsJsonFile: ShapePointsManger.alefBigShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];
@@ -703,19 +708,20 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.end:
           return [
             TraceModel(
-                positionIndexPath: const Size(-10, -18),
-                positionDottedPath: const Size(0, -5),
-                scaledottedPath: .88,
-                scaleIndexPath: .95,
-                indexPathPaintStyle: PaintingStyle.stroke,
-                dottedPath: ArabicShapePaths.gemDotted,
+              letterViewSize: viewSize,
+                positionIndexPath: const Size(-70, -120),
+                positionDottedPath: const Size(16, -5),
+                scaledottedPath: .9,
+                scaleIndexPath: 1.05,
+                strokeWidth: 60,
+                distanceToCheck: 20,
+                dottedPath: ArabicShapePaths.gemMedialDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.gemIndex,
-                letterPath: ArabicShapePaths.gemmm,
-                strokeWidth: 40,
+                indexPath: ArabicShapePaths.alefEndIndex,
+                letterPath: ArabicShapePaths.alefEnd,
                 strokeIndex: 1,
-                pointsJsonFile: ShapePointsManger.gemFinalShape,
+                pointsJsonFile: ShapePointsManger.alefEndShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];
@@ -978,7 +984,7 @@ class TypeExtensionTracking {
             TraceModel(
                 positionIndexPath: const Size(0, -30),
                 positionDottedPath: const Size(-5, -15),
-                letterViewSize: Size(781.7, 1600),
+                letterViewSize: viewSize,
                 scaledottedPath: .8,
                 scaleIndexPath: .9,
                 strokeIndex: 1,
@@ -1001,6 +1007,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.isolated:
           return [
             TraceModel(
+              letterViewSize: viewSize,
                 positionIndexPath: const Size(-10, -18),
                 positionDottedPath: const Size(0, -5),
                 scaledottedPath: .9,
@@ -1061,7 +1068,7 @@ class TypeExtensionTracking {
           // Use middle-specific Jeem assets and middle points with neutral transforms
           return [
             TraceModel(
-              // letterViewSize: const Size(800, 800),
+              letterViewSize: viewSize,
                 positionIndexPath: const Size(30, 90),
                 positionDottedPath: const Size(0, 0),
                 scaledottedPath: .8,
@@ -1146,7 +1153,7 @@ class TypeExtensionTracking {
         // Use middle-specific Jeem assets and middle points with neutral transforms
           return [
             TraceModel(
-                letterViewSize: const Size(236, 355),
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(0, -30),
                 positionDottedPath: const Size(-5, -15),
                 scaledottedPath: .8,
@@ -2347,19 +2354,20 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.isolated:
           return [
             TraceModel(
-                positionIndexPath: const Size(-10, -18),
-                positionDottedPath: const Size(0, -5),
-                scaledottedPath: .9,
-                scaleIndexPath: .92,
-                indexPathPaintStyle: PaintingStyle.stroke,
-                dottedPath: ArabicShapePaths.gemDotted,
+                positionIndexPath: const Size(0, 20),
+                positionDottedPath: const Size(8, 20),
+                scaledottedPath: .8,
+                scaleIndexPath: 1.05,
+                strokeWidth: 45,
+                disableDividedStrokes: true,
+                distanceToCheck: 20,
+                dottedPath: ArabicShapePaths.kafBigDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.gemIndex,
-                letterPath: ArabicShapePaths.gemmm,
-                strokeWidth: 40,
+                indexPath: ArabicShapePaths.kafBigIndex,
+                letterPath: ArabicShapePaths.kafBigshape,
+                pointsJsonFile: ShapePointsManger.kafBigShape,
                 strokeIndex: 1,
-                pointsJsonFile: ShapePointsManger.gemIsolatedShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];
@@ -2367,18 +2375,20 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.start:
           return [
             TraceModel(
-                positionIndexPath: const Size(0, -30),
-                positionDottedPath: const Size(-5, -15),
-                scaledottedPath: .8,
-                scaleIndexPath: .9,
-                strokeIndex: 1,
-                // strokeWidth: ,
-                dottedPath: ArabicShapePaths.gemsmallDoottedPath,
+                positionIndexPath: const Size(0, 0),
+                positionDottedPath: const Size(-10, 0),
+                scaledottedPath: .9,
+                scaleIndexPath: 1.15,
+                strokeWidth: 40,
+                disableDividedStrokes: true,
+                distanceToCheck: 20,
+                dottedPath: ArabicShapePaths.kafSmallDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.gemSmallIndexPath,
-                letterPath: ArabicShapePaths.gemSmall2,
-                pointsJsonFile: ShapePointsManger.gemSmallShape,
+                indexPath: ArabicShapePaths.kafSmallIndex,
+                letterPath: ArabicShapePaths.kafSmallshape,
+                pointsJsonFile: ShapePointsManger.kafSmallShape,
+                strokeIndex: 1,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];
@@ -2386,19 +2396,20 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.end:
           return [
             TraceModel(
-                positionIndexPath: const Size(-10, -18),
+              letterViewSize: viewSize,
+                positionIndexPath: const Size(-4, 10),
                 positionDottedPath: const Size(0, -5),
                 scaledottedPath: .88,
-                scaleIndexPath: .95,
+                scaleIndexPath: 1,
                 indexPathPaintStyle: PaintingStyle.stroke,
-                dottedPath: ArabicShapePaths.gemDotted,
+                dottedPath: ArabicShapePaths.gemMedialDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.gemIndex,
-                letterPath: ArabicShapePaths.gemmm,
+                indexPath: ArabicShapePaths.kafEndIndex,
+                letterPath: ArabicShapePaths.kafEndShape,
                 strokeWidth: 40,
                 strokeIndex: 1,
-                pointsJsonFile: ShapePointsManger.gemFinalShape,
+                pointsJsonFile: ShapePointsManger.kafEndShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];
@@ -2451,14 +2462,14 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.start:
           return [
             TraceModel(
-                letterViewSize: const Size(98, 355),
+                // letterViewSize: const Size(98, 355),
                 strokeIndex: 1,
                 dottedPath: ArabicShapePaths.gemMedialDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
                 indexPath: ArabicShapePaths.gemMedialDotted,
                 indexPathPaintStyle: PaintingStyle.stroke,
-                letterPath: ArabicShapePaths.lamStart,
+                letterPath: ArabicShapePaths.lamsmall,
                 positionIndexPath: const Size(20, 25),
                 positionDottedPath: const Size(5, 15),
                 scaledottedPath: .7,

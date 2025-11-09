@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tracing_game/tracing_game.dart';
 import 'package:tracing_game/src/tracing/model/arabic_character_form.dart';
-import 'debug_points_preview.dart';
 import 'package:tracing_game/src/utils/arabic_letters.dart';
 
 
@@ -40,22 +39,18 @@ class _MyAppState extends State<MyApp> {
                 showAnchor: true,
                 traceShapeModel: [
                   TraceCharsModel(chars: [
-                    // TraceCharModel(
-                    //     char: ArabicLetter.jeem.tracingChar,
-                    //     characterForm: ArabicCharacterForm.middle,
-                    //     traceShapeOptions: const TraceShapeOptions(
-                    //         innerPaintColor: Colors.orange)
-                    // ),
-
-                    // TraceCharModel(
-                    //     char: ArabicLetter.ha.tracingChar,
-                    //     characterForm: ArabicCharacterForm.middle,
-                    //     traceShapeOptions: const TraceShapeOptions(
-                    //         innerPaintColor: Colors.orange)
-                    // ),
                     TraceCharModel(
-                        char: ArabicLetter.lam.tracingChar,
-                        characterForm: ArabicCharacterForm.start,
+                        char: ArabicLetter.kaf.tracingChar,
+                        characterForm: ArabicCharacterForm.end,
+                        charViewSize: const Size(300, 300),
+                        traceShapeOptions: const TraceShapeOptions(
+                            innerPaintColor: Colors.orange)
+                    ),
+
+                    TraceCharModel(
+                        char: ArabicLetter.alif.tracingChar,
+                        characterForm: ArabicCharacterForm.end,
+                        charViewSize: const Size(100, 100),
                         traceShapeOptions: const TraceShapeOptions(
                             innerPaintColor: Colors.orange)
                     ),
@@ -77,40 +72,6 @@ class _MyAppState extends State<MyApp> {
                 },
               ),
             ),
-            // Expanded(
-            //   child: TracingGeometricShapesGame(
-            //     traceGeoMetricShapeModels: [
-            //
-            //       TraceGeoMetricShapeModel(shapes: [
-            //         MathShapeWithOption(
-            //             shape: MathShapes.triangle4,
-            //             traceShapeOptions: const TraceShapeOptions(
-            //                 innerPaintColor: Colors.orange)),
-            //       ]),
-            //     ],
-            //   ),
-            // ),
-            // Expanded(
-            //   child: TracingWordGame(
-            //     words: [
-            //       TraceWordModel(
-            //         word: '',
-            //         traceShapeOptions: const TraceShapeOptions(
-            //           indexColor: Colors.green,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            // const SizedBox(height: 12),
-            // const Text('gem_medial_PointsInfo.json preview', style: TextStyle(fontSize: 16)),
-            // const SizedBox(height: 8),
-            // const DebugPointsPreview(
-            //   assetPath: 'packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_medial_PointsInfo.json',
-            //   size: Size(300, 300),
-            //   drawLines: true,
-            //   pointColor: Colors.red,
-            // ),
           ],
         ),
       ),

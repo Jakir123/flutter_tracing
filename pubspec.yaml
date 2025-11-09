@@ -82,9 +82,10 @@ flutter:
     - packages/tracing_game/assets/phontics_assets_points/english_phontics/y_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/english_phontics/z_PointsInfo.json
 # // arabic 
-    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/alef_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/3en_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/3en_small_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/alef_big_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/alef_end_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ba2_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ba2_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ba_middle_PointsInfo.json
@@ -94,12 +95,11 @@ flutter:
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/fa2_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/fa2_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_big_PointsInfo.json
-    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_small_PointsInfo.json
-    # Per-form Jeem points (distinct file names)
-    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_isolated_PointsInfo.json
-    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_initial_PointsInfo.json
-    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_medial_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_final_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_initial_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_isolated_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_medial_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/gem_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ghen_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ghen_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ha2_big_PointsInfo.json
@@ -109,6 +109,7 @@ flutter:
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/heh_3_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/heh_4_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/kaf_big_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/kaf_end_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/kaf_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/khah_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/khah_small_PointsInfo.json

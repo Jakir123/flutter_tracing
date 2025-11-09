@@ -137,6 +137,7 @@ class ShapePointsManger {
     static const tahBigShape = '$arabicBase/tah_big_PointsInfo.json';
 
     static const alefBigShape = '$arabicBase/alef_big_PointsInfo.json';
+    static const alefEndShape = '$arabicBase/alef_end_PointsInfo.json';
     static const zenBigShape = '$arabicBase/zen_big_PointsInfo.json';
 
     static const khahBigShape = '$arabicBase/khah_big_PointsInfo.json';
@@ -161,6 +162,7 @@ class ShapePointsManger {
   // kaf be hamza
     static const kafBigShape = '$arabicBase/kaf_big_PointsInfo.json';
     static const kafSmallShape = '$arabicBase/kaf_small_PointsInfo.json';
+    static const kafEndShape = '$arabicBase/kaf_end_PointsInfo.json';
 
 
 // qaf be no2teten

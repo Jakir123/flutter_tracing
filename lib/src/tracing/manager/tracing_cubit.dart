@@ -52,16 +52,23 @@ class TracingCubit extends Cubit<TracingState> {
   updateTheTraceLetter() async {
     emit(state.clearData());
     final traceShapeModel = state.traceShapeModel;
-    final characterForm = (traceShapeModel != null && 
-                         traceShapeModel.isNotEmpty && 
-                         traceShapeModel[state.index].chars.isNotEmpty)
-        ? traceShapeModel[state.index].chars[0].characterForm
-        : null;
+    
+    // Get characterForm from the first character if available
+    ArabicCharacterForm? characterForm;
+    
+    if (traceShapeModel != null && 
+        traceShapeModel.isNotEmpty && 
+        traceShapeModel[state.index].chars.isNotEmpty) {
+      final firstChar = traceShapeModel[state.index].chars[0];
+      characterForm = firstChar.characterForm;
+    }
 
     emit(state.copyWith(
         activeIndex: 0,
         stateOfTracing: state.stateOfTracing,
-        traceLetter: TypeExtensionTracking(characterForm: characterForm).getTracingData(
+        traceLetter: TypeExtensionTracking(
+          characterForm: characterForm,
+        ).getTracingData(
             geometryShapes: state.stateOfTracing == StateOfTracing.traceShapes && state.traceGeoMetricShapes!.isNotEmpty
                 ? state.traceGeoMetricShapes![state.index].shapes
                 : null,
@@ -76,7 +83,7 @@ class TracingCubit extends Cubit<TracingState> {
   }
 
   var viewSize = const Size(200, 200);
-  
+
   Future<void> loadAssets() async {
     emit(state.copyWith(drawingStates: DrawingStates.loading));
 
@@ -90,35 +97,11 @@ class TracingCubit extends Cubit<TracingState> {
       final dottedPath = parseSvgPath(letterModel.dottedPath);
 
       // var size = Rect.fromLTWH(0, 0, letterModel.letterViewSize.width, letterModel.letterViewSize.height);
-      // final transformedPath = _applyGlobalViewBoxTransform(
-      //   parsedPath,
-      //   viewSize,
-      //     size
-      // );
-
-      final globalHeight = 355.0; // unify all letters to same height
-
-// Step 1: Normalize
-      final lamPath = parseSvgPath(ArabicShapePaths.lamStart);
-      final haPath = parseSvgPath(ArabicShapePaths.haMiddle);
-      final lamNorm = normalizeLetterToGlobalHeight(lamPath, Rect.fromLTWH(0, 0, 98,355), globalHeight);
-      final haMidNorm = normalizeLetterToGlobalHeight(haPath, Rect.fromLTWH(0, 0, 236,355), globalHeight);
-
-// Step 2: Compose horizontally
-      final positioned = positionLettersHorizontally(
-        [haMidNorm, lamNorm],
-        [Rect.fromLTWH(0, 0, 236,355),Rect.fromLTWH(0, 0, 98,355)],
-        globalHeight,
+      final transformedPath = _applyTransformation(
+        parsedPath,
+        viewSize
       );
 
-// Merge all paths into a single word
-      final wordPath = Path();
-      for (final p in positioned) {
-        wordPath.addPath(p, Offset.zero);
-      }
-
-// Step 3: Fit entire word to 200x200
-      final transformedPath = scaleWordToViewBox(wordPath, const Size(200, 200));
 
       final dottedPathTransformed = _applyTransformationForOtherPathsDotted(
           dottedPath,
@@ -164,118 +147,6 @@ class TracingCubit extends Cubit<TracingState> {
     ));
   }
 
-
-  Path normalizeLetterToGlobalHeight(
-      Path path,
-      Rect letterViewBox,     // e.g., (0,0,98,355)
-      double globalHeight,    // e.g., 1600
-      ) {
-    final double scale = globalHeight / letterViewBox.height;
-    final Matrix4 matrix = Matrix4.identity()
-      ..scale(scale, scale)
-      ..translate(-letterViewBox.left, -letterViewBox.top);
-
-    return path.transform(matrix.storage);
-  }
-  List<Path> positionLettersHorizontally(
-      List<Path> letterPaths,
-      List<Rect> letterViewBoxes,
-      double globalHeight,
-      ) {
-    double currentX = 0;
-    final List<Path> positionedPaths = [];
-
-    for (int i = 0; i < letterPaths.length; i++) {
-      final Path letterPath = letterPaths[i];
-      final Rect viewBox = letterViewBoxes[i];
-
-      // Calculate scaled width
-      final double widthScaled = viewBox.width * (globalHeight / viewBox.height);
-
-      // Translate current path horizontally
-      final Matrix4 translateMatrix = Matrix4.identity()
-        ..translate(currentX, 0.0);
-
-      positionedPaths.add(letterPath.transform(translateMatrix.storage));
-
-      // Move x cursor for next letter
-      currentX += widthScaled;
-    }
-
-    return positionedPaths;
-  }
-
-
-  Path scaleWordToViewBox(Path wordPath, Size viewSize) {
-    final Rect bounds = wordPath.getBounds();
-
-    final double scaleX = viewSize.width / bounds.width;
-    final double scaleY = viewSize.height / bounds.height;
-    final double scale = math.min(scaleX, scaleY);
-
-    final double translateX = -bounds.left * scale;
-    final double translateY = -bounds.top * scale;
-
-    final Matrix4 matrix = Matrix4.identity()
-      ..scale(scale, scale)
-      ..translate(translateX / scale, translateY / scale);
-
-    return wordPath.transform(matrix.storage);
-  }
-
-
-  Path _applyTransformationWithViewBox(
-      Path path,
-      Size viewSize,
-      Rect viewBox, // e.g., Rect.fromLTWH(0, 0, 98, 355)
-      ) {
-    // The original coordinate space from the SVG viewBox
-    final double viewBoxWidth = viewBox.width;
-    final double viewBoxHeight = viewBox.height;
-    final double viewBoxLeft = viewBox.left;
-    final double viewBoxTop = viewBox.top;
-
-    // Calculate uniform scale to fit within viewSize
-    final double scaleX = viewSize.width / viewBoxWidth;
-    final double scaleY = viewSize.height / viewBoxHeight;
-    final double scale = math.min(scaleX, scaleY);
-
-    // Center the scaled viewBox within the target viewSize
-    final double translateX =
-        (viewSize.width - viewBoxWidth * scale) / 2 - viewBoxLeft * scale;
-    final double translateY =
-        (viewSize.height - viewBoxHeight * scale) / 2 - viewBoxTop * scale;
-
-    // Build the transformation matrix (scale, then translate)
-    final Matrix4 matrix = Matrix4.identity()
-      ..scale(scale, scale)
-      ..translate(translateX / scale, translateY / scale);
-
-    return path.transform(matrix.storage);
-  }
-
-
-  Path _applyGlobalViewBoxTransform(
-      Path path,
-      Size viewSize,          // e.g., Size(200, 200)
-      Rect globalViewBox,     // e.g., Rect.fromLTWH(0, 0, 781.7, 1600)
-      ) {
-    final double scaleX = viewSize.width / globalViewBox.width;
-    final double scaleY = viewSize.height / globalViewBox.height;
-
-    // ✅ Use uniform scale if you want proportional scaling.
-    final double scale = math.min(scaleX, scaleY);
-
-    // ✅ Translate based on the global viewBox origin.
-    final double translateX = -globalViewBox.left * scale;
-    final double translateY = -globalViewBox.top * scale;
-
-    final Matrix4 matrix = Matrix4.identity()
-      ..scale(scale, scale)
-      ..translate(translateX / scale, translateY / scale);
-
-    return path.transform(matrix.storage);
-  }
 
 
 
