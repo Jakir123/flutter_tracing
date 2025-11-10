@@ -8,7 +8,7 @@ enum ArabicLetter {
   ha('ح'),
   kha('خ'),
   dal('د'),
-  thal('ذ'),
+  zal('ذ'),
   ra('ر'),
   zay('ز'),
   seen('س'),

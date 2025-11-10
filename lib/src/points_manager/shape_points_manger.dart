@@ -117,6 +117,7 @@ class ShapePointsManger {
     static const baMiddleShape = '$arabicBase/ba_middle_PointsInfo.json';
 
     static const fa2bigShape = '$arabicBase/fa2_big_PointsInfo.json';
+    static const faEndShape = '$arabicBase/fa_end_PointsInfo.json';
     static const fa2smallShape = '$arabicBase/fa2_small_PointsInfo.json';
 
  static const membigShape = '$arabicBase/mem_big_PointsInfo.json';
@@ -129,6 +130,7 @@ class ShapePointsManger {
 
  static const einbigShape = '$arabicBase/3en_big_PointsInfo.json';
     static const einsmallShape = '$arabicBase/3en_small_PointsInfo.json';
+    static const einEndShape = '$arabicBase/3en_end_PointsInfo.json';
 
  static const ghenbigShape = '$arabicBase/ghen_big_PointsInfo.json';
     static const ghensmallShape = '$arabicBase/ghen_small_PointsInfo.json';
