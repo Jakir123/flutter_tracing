@@ -131,10 +131,12 @@ class ShapePointsManger {
 
  static const einbigShape = '$arabicBase/3en_big_PointsInfo.json';
     static const einsmallShape = '$arabicBase/3en_small_PointsInfo.json';
+    static const einMiddleShape = '$arabicBase/3en_middle_PointsInfo.json';
     static const einEndShape = '$arabicBase/3en_end_PointsInfo.json';
 
  static const ghenbigShape = '$arabicBase/ghen_big_PointsInfo.json';
     static const ghensmallShape = '$arabicBase/ghen_small_PointsInfo.json';
+    static const ghenMiddleShape = '$arabicBase/ghen_middle_PointsInfo.json';
     static const ghenEndShape = '$arabicBase/ghen_end_PointsInfo.json';
 
 

@@ -20,6 +20,6 @@ class TraceCharModel {
     required this.char,
     this.traceShapeOptions = const TraceShapeOptions(),
     this.characterForm = ArabicCharacterForm.isolated,
-    this.charViewSize = const Size(200, 200),
+    this.charViewSize = const Size(150, 150),
   });
 }

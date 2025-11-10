@@ -112,16 +112,16 @@ class _TracingCharsGameState extends State<TracingCharsGame> {
                                   // alignment: Alignment.b,
                                   children: [
                                     // Visualize the 500x500 area (for debugging)
-                                    Positioned.fill(
-                                      child: IgnorePointer(
-                                        child: DecoratedBox(
-                                          decoration: BoxDecoration(
-                                            color: Colors.lime.withOpacity(0.1),
-                                            border: Border.all(color: Colors.lime, width: 1),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                    // Positioned.fill(
+                                    //   child: IgnorePointer(
+                                    //     child: DecoratedBox(
+                                    //       decoration: BoxDecoration(
+                                    //         color: Colors.lime.withOpacity(0.1),
+                                    //         border: Border.all(color: Colors.lime, width: 1),
+                                    //       ),
+                                    //     ),
+                                    //   ),
+                                    // ),
                                     CustomPaint(
                                       // isComplex: true,
                                       size: tracingCubit.viewSize,

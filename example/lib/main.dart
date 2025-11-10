@@ -40,7 +40,30 @@ class _MyAppState extends State<MyApp> {
                 traceShapeModel: [
                   TraceCharsModel(chars: [
                     TraceCharModel(
-                        char: ArabicLetter.ghayn.tracingChar,
+                        char: ArabicLetter.kaf.tracingChar,
+                        characterForm: ArabicCharacterForm.end,
+                        traceShapeOptions: const TraceShapeOptions(
+                            innerPaintColor: Colors.orange)
+                    ),
+
+                    TraceCharModel(
+                        char: ArabicLetter.alif.tracingChar,
+                        characterForm: ArabicCharacterForm.end,
+                        traceShapeOptions: const TraceShapeOptions(
+                            innerPaintColor: Colors.orange)
+                    ),
+
+                  ]),
+                ],
+              ),
+            ),
+            Expanded(
+              child: TracingCharsGame(
+                showAnchor: true,
+                traceShapeModel: [
+                  TraceCharsModel(chars: [
+                    TraceCharModel(
+                        char: ArabicLetter.qaf.tracingChar,
                         characterForm: ArabicCharacterForm.end,
                         traceShapeOptions: const TraceShapeOptions(
                             innerPaintColor: Colors.orange)
@@ -55,19 +78,69 @@ class _MyAppState extends State<MyApp> {
 
                   ]),
                 ],
+              ),
+            ),
+            Expanded(
+              child: TracingCharsGame(
+                showAnchor: true,
+                traceShapeModel: [
+                  TraceCharsModel(chars: [
+                    TraceCharModel(
+                        char: ArabicLetter.ayn.tracingChar,
+                        characterForm: ArabicCharacterForm.end,
+                        traceShapeOptions: const TraceShapeOptions(
+                            innerPaintColor: Colors.orange)
+                    ),
 
+                    TraceCharModel(
+                        char: ArabicLetter.ayn.tracingChar,
+                        characterForm: ArabicCharacterForm.middle,
+                        traceShapeOptions: const TraceShapeOptions(
+                            innerPaintColor: Colors.orange)
+                    ),
 
-                onTracingUpdated: (int currentTracingIndex) async {
-                  print('/////onTracingUpdated:' +
-                      currentTracingIndex.toString());
-                },
-                onGameFinished: (int screenIndex) async {
-                  print('/////onGameFinished:' + screenIndex.toString());
-                },
-                onCurrentTracingScreenFinished: (int currentScreenIndex) async {
-                  print('/////onCurrentTracingScreenFinished:' +
-                      currentScreenIndex.toString());
-                },
+                  ]),
+                ],
+              ),
+            ),
+
+            Expanded(
+              child: TracingCharsGame(
+                showAnchor: true,
+                traceShapeModel: [
+                  TraceCharsModel(chars: [
+                    TraceCharModel(
+                        char: ArabicLetter.ghayn.tracingChar,
+                        characterForm: ArabicCharacterForm.end,
+                        traceShapeOptions: const TraceShapeOptions(
+                            innerPaintColor: Colors.orange)
+                    ),
+
+                    TraceCharModel(
+                        char: ArabicLetter.ghayn.tracingChar,
+                        characterForm: ArabicCharacterForm.middle,
+                        traceShapeOptions: const TraceShapeOptions(
+                            innerPaintColor: Colors.orange)
+                    ),
+
+                  ]),
+                ],
+              ),
+            ),
+            Expanded(
+              child: TracingCharsGame(
+                showAnchor: true,
+                traceShapeModel: [
+                  TraceCharsModel(chars: [
+                    TraceCharModel(
+                        char: ArabicLetter.meem.tracingChar,
+                        characterForm: ArabicCharacterForm.end,
+                        traceShapeOptions: const TraceShapeOptions(
+                            innerPaintColor: Colors.orange)
+                    ),
+
+                  ]),
+                ],
               ),
             ),
           ],

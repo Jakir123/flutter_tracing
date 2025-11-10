@@ -2119,6 +2119,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.isolated:
           return [
             TraceModel(
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(-25, -10),
                 positionDottedPath: const Size(-3, 0),
                 scaledottedPath: .9,
@@ -2138,6 +2139,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.start:
           return [
             TraceModel(
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(10, 0),
                 positionDottedPath: const Size(0, 0),
                 scaledottedPath: .8,
@@ -2157,6 +2159,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.end:
           return [
             TraceModel(
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(-520, -320),
                 positionDottedPath: const Size(0, 0),
                 scaledottedPath: .8,
@@ -2177,18 +2180,19 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.middle:
           return [
             TraceModel(
-                positionIndexPath: const Size(10, 0),
+                letterViewSize: viewSize,
+                positionIndexPath: const Size(35, 35),
                 positionDottedPath: const Size(0, 0),
                 scaledottedPath: .8,
                 scaleIndexPath: .9,
                 strokeWidth: 45,
-                dottedPath: ArabicShapePaths.einSmallDotted,
+                dottedPath: ArabicShapePaths.gemMedialDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.einSmallIndex,
-                letterPath: ArabicShapePaths.enSmall,
+                indexPath: ArabicShapePaths.aynMiddleIndex,
+                letterPath: ArabicShapePaths.aynMiddleShape,
                 strokeIndex: 1,
-                pointsJsonFile: ShapePointsManger.einsmallShape,
+                pointsJsonFile: ShapePointsManger.einMiddleShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];
@@ -2201,6 +2205,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.isolated:
           return [
             TraceModel(
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(-18, 10),
                 positionDottedPath: const Size(0, 15),
                 scaledottedPath: .75,
@@ -2220,6 +2225,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.start:
           return [
             TraceModel(
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(30, 35),
                 positionDottedPath: const Size(5, 30),
                 scaledottedPath: .75,
@@ -2239,6 +2245,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.end:
           return [
             TraceModel(
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(-40, -10),
                 positionDottedPath: const Size(5, 30),
                 scaledottedPath: .75,
@@ -2258,18 +2265,19 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.middle:
           return [
             TraceModel(
-                positionIndexPath: const Size(30, 35),
+              letterViewSize: viewSize,
+                positionIndexPath: const Size(20, 70),
                 positionDottedPath: const Size(5, 30),
                 scaledottedPath: .75,
                 scaleIndexPath: .9,
-                strokeWidth: 45,
-                dottedPath: ArabicShapePaths.ghenSmallDotted,
+                strokeWidth: 50,
+                dottedPath: ArabicShapePaths.gemMedialDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.ghenSmallIndex,
-                letterPath: ArabicShapePaths.ghenSmallShape,
+                indexPath: ArabicShapePaths.ghenMiddleIndex,
+                letterPath: ArabicShapePaths.ghenMiddleShape,
                 strokeIndex: 1,
-                pointsJsonFile: ShapePointsManger.ghensmallShape,
+                pointsJsonFile: ShapePointsManger.ghenMiddleShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];
@@ -2321,6 +2329,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.end:
           return [
             TraceModel(
+              letterViewSize: viewSize,
                 positionIndexPath: const Size(10, 30),
                 positionDottedPath: const Size(-2, 27),
                 scaledottedPath: .6,
@@ -2364,6 +2373,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.isolated:
           return [
             TraceModel(
+              letterViewSize: viewSize,
                 positionIndexPath: const Size(0, 20),
                 positionDottedPath: const Size(0, 20),
                 scaledottedPath: .67,
@@ -2385,6 +2395,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.start:
           return [
             TraceModel(
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(20, 30),
                 positionDottedPath: const Size(0, 30),
                 scaledottedPath: .6,
@@ -2406,6 +2417,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.end:
           return [
             TraceModel(
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(-60, -30),
                 positionDottedPath: const Size(0, 30),
                 scaledottedPath: .6,
@@ -2427,6 +2439,7 @@ class TypeExtensionTracking {
         case ArabicCharacterForm.middle:
           return [
             TraceModel(
+                letterViewSize: viewSize,
                 positionIndexPath: const Size(20, 30),
                 positionDottedPath: const Size(0, 30),
                 scaledottedPath: .6,
