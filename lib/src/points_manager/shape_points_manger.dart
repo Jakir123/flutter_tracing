@@ -135,6 +135,7 @@ class ShapePointsManger {
 
  static const ghenbigShape = '$arabicBase/ghen_big_PointsInfo.json';
     static const ghensmallShape = '$arabicBase/ghen_small_PointsInfo.json';
+    static const ghenEndShape = '$arabicBase/ghen_end_PointsInfo.json';
 
 
     static const tahBigShape = '$arabicBase/tah_big_PointsInfo.json';

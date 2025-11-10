@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
                 traceShapeModel: [
                   TraceCharsModel(chars: [
                     TraceCharModel(
-                        char: ArabicLetter.meem.tracingChar,
+                        char: ArabicLetter.ghayn.tracingChar,
                         characterForm: ArabicCharacterForm.end,
                         traceShapeOptions: const TraceShapeOptions(
                             innerPaintColor: Colors.orange)
