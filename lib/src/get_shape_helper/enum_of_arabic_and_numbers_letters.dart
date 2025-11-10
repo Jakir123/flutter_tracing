@@ -2358,6 +2358,95 @@ class TypeExtensionTracking {
       }
     }
 
+    // Qaf - ق
+    if (letter == ArabicLetter.qaf.tracingChar) {
+      switch (form) {
+        case ArabicCharacterForm.isolated:
+          return [
+            TraceModel(
+                positionIndexPath: const Size(0, 20),
+                positionDottedPath: const Size(0, 20),
+                scaledottedPath: .67,
+                scaleIndexPath: .9,
+                strokeWidth: 35,
+                disableDividedStrokes: true,
+                distanceToCheck: 20,
+                dottedPath: ArabicShapePathBluUnit.qaaaafBigShapeDotted,
+                dottedColor: AppColorPhonetics.white,
+                indexColor: AppColorPhonetics.grey,
+                indexPath: ArabicShapePathBluUnit.qaaaafBigIndex,
+                letterPath: ArabicShapePathBluUnit.qaaaafBigShape,
+                pointsJsonFile: ShapePointsManger.qafBigShape,
+                strokeIndex: 1,
+                innerPaintColor: AppColorPhonetics.lightBlueColor5,
+                outerPaintColor: AppColorPhonetics.lightBlueColor5),
+          ];
+
+        case ArabicCharacterForm.start:
+          return [
+            TraceModel(
+                positionIndexPath: const Size(20, 30),
+                positionDottedPath: const Size(0, 30),
+                scaledottedPath: .6,
+                scaleIndexPath: .9,
+                strokeWidth: 40,
+                disableDividedStrokes: true,
+                distanceToCheck: 20,
+                dottedPath: ArabicShapePathBluUnit.qaafSmallDotted,
+                dottedColor: AppColorPhonetics.white,
+                indexColor: AppColorPhonetics.grey,
+                indexPath: ArabicShapePathBluUnit.qaaaafSmallIndex,
+                letterPath: ArabicShapePathBluUnit.qaaaafSmallShape,
+                pointsJsonFile: ShapePointsManger.qafSmallShape,
+                strokeIndex: 1,
+                innerPaintColor: AppColorPhonetics.lightBlueColor5,
+                outerPaintColor: AppColorPhonetics.lightBlueColor5),
+          ];
+
+        case ArabicCharacterForm.end:
+          return [
+            TraceModel(
+                positionIndexPath: const Size(-60, -30),
+                positionDottedPath: const Size(0, 30),
+                scaledottedPath: .6,
+                scaleIndexPath: .9,
+                strokeWidth: 55,
+                disableDividedStrokes: true,
+                distanceToCheck: 30,
+                dottedPath: ArabicShapePaths.gemMedialDotted,
+                dottedColor: AppColorPhonetics.white,
+                indexColor: AppColorPhonetics.grey,
+                indexPath: ArabicShapePathBluUnit.qaafEndIndex,
+                letterPath: ArabicShapePathBluUnit.qaafEndShape,
+                pointsJsonFile: ShapePointsManger.qafEndShape,
+                strokeIndex: 1,
+                innerPaintColor: AppColorPhonetics.lightBlueColor5,
+                outerPaintColor: AppColorPhonetics.lightBlueColor5),
+          ];
+
+        case ArabicCharacterForm.middle:
+          return [
+            TraceModel(
+                positionIndexPath: const Size(20, 30),
+                positionDottedPath: const Size(0, 30),
+                scaledottedPath: .6,
+                scaleIndexPath: .9,
+                strokeWidth: 40,
+                disableDividedStrokes: true,
+                distanceToCheck: 20,
+                dottedPath: ArabicShapePathBluUnit.qaafSmallDotted,
+                dottedColor: AppColorPhonetics.white,
+                indexColor: AppColorPhonetics.grey,
+                indexPath: ArabicShapePathBluUnit.qaaaafSmallIndex,
+                letterPath: ArabicShapePathBluUnit.qaaaafSmallShape,
+                pointsJsonFile: ShapePointsManger.qafSmallShape,
+                strokeIndex: 1,
+                innerPaintColor: AppColorPhonetics.lightBlueColor5,
+                outerPaintColor: AppColorPhonetics.lightBlueColor5),
+          ];
+      }
+    }
+
     // Kaf - ك
     if (letter == ArabicLetter.kaf.tracingChar) {
       switch (form) {
@@ -2571,13 +2660,13 @@ class TypeExtensionTracking {
                 positionDottedPath: const Size(5, 0),
                 scaledottedPath: .8,
                 scaleIndexPath: 1,
-                dottedPath: ArabicShapePaths.memSmallDotted,
+                dottedPath: ArabicShapePaths.gemMedialDotted,
                 dottedColor: AppColorPhonetics.white,
                 indexColor: AppColorPhonetics.grey,
-                indexPath: ArabicShapePaths.memsmallIndex,
-                letterPath: ArabicShapePaths.memSmall,
+                indexPath: ArabicShapePaths.memEndIndex,
+                letterPath: ArabicShapePaths.memEndShape,
                 strokeIndex: 1,
-                pointsJsonFile: ShapePointsManger.memsmallShape,
+                pointsJsonFile: ShapePointsManger.memEndShape,
                 innerPaintColor: AppColorPhonetics.lightBlueColor5,
                 outerPaintColor: AppColorPhonetics.lightBlueColor5),
           ];

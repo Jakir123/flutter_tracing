@@ -119,10 +119,12 @@ flutter:
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/lam_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/mem_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/mem_small_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/mem_end_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/non_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/non_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/qaf_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/qaf_small_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/qaf_end_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/ra2_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/sad_big_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/sad_small_PointsInfo.json
