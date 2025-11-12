@@ -168,6 +168,7 @@ class ShapePointsManger {
   // kaf be hamza
     static const kafBigShape = '$arabicBase/kaf_big_PointsInfo.json';
     static const kafSmallShape = '$arabicBase/kaf_small_PointsInfo.json';
+    static const kafMiddleShape = '$arabicBase/kaf_middle_PointsInfo.json';
     static const kafEndShape = '$arabicBase/kaf_end_PointsInfo.json';
 
 

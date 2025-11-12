@@ -114,6 +114,7 @@ flutter:
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/heh_3_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/heh_4_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/kaf_big_PointsInfo.json
+    - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/kaf_middle_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/kaf_end_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/kaf_small_PointsInfo.json
     - packages/tracing_game/assets/phontics_assets_points/arabic_phontics/khah_big_PointsInfo.json
