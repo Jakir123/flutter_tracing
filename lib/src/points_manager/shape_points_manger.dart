@@ -127,6 +127,7 @@ class ShapePointsManger {
 
  static const ya2bigShape = '$arabicBase/ya2_big_PointsInfo.json';
     static const ya2smallShape = '$arabicBase/ya2_small_PointsInfo.json';
+    static const yaEndShape = '$arabicBase/ya_end_PointsInfo.json';
 
 
  static const einbigShape = '$arabicBase/3en_big_PointsInfo.json';
